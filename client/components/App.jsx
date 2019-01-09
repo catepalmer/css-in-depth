@@ -1,34 +1,31 @@
-import React from 'react'
+import React from "react";
 
-import {getFruits} from '../apiClient'
-
-class App extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      fruits: []
-    }
-  }
-
-  componentDidMount () {
-    getFruits()
-      .then(fruits => {
-        this.setState({fruits})
-      })
-  }
-
-  render () {
-    return (
-      <div className='app'>
-        <h1>Fullstack Boilerplate</h1>
-        <ul>
-          {this.state.fruits.map(fruit => (
-            <li key={fruit}>{fruit}</li>
-          ))}
-        </ul>
-      </div>
-    )
-  }
+export default function App() {
+  return (
+    <div className="app">
+      <header class="page-header">
+        <h1 id="page-title" class="title">
+          Wombat Coffee Roasters
+        </h1>
+        <nav>
+          <ul id="main-nav" class="nav">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/coffees">Coffees</a>
+            </li>
+            <li>
+              <a href="/brewers">Brewers</a>
+            </li>
+            <li>
+              <a href="/specials" class="featured">
+                Specials
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+  );
 }
-
-export default App
